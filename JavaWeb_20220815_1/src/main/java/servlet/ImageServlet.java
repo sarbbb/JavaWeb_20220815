@@ -41,6 +41,4 @@ public class ImageServlet extends HttpServlet{
 		Files.copy(path,out);
 		out.close();
 	}
-	
-
 }

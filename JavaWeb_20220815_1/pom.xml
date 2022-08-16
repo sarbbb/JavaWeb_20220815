@@ -4,6 +4,22 @@
   <artifactId>JavaWeb_20220815_1</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+  
+  <dependencies>
+  	<dependency>
+		<groupId>javax</groupId>
+		<artifactId>javaee-web-api</artifactId>
+		<version>8.0</version>
+		<scope>provided</scope>
+	</dependency>
+	
+	<dependency>
+    	<groupId>com.yahoofinance-api</groupId>
+    	<artifactId>YahooFinanceAPI</artifactId>
+    	<version>3.17.0</version>
+	</dependency>
+  </dependencies>
+  
   <build>
     <plugins>
       <plugin>
