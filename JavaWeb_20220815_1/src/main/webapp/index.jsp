@@ -10,6 +10,8 @@
 <body>
 	現在時刻： <%=new Date() %>
 	<br>
+	<br>
+	<br>
 	context path: ${ pageContext.request.contextPath }
 	<ul>
 		<li><a href="${ pageContext.request.contextPath }/servlet/hello">HelloServlet</a></li>

@@ -8,7 +8,7 @@
 		<meta charset="UTF-8">
 		<title>Lotto Form</title>
 	</head>
-	<body>
+	<body style="padding: 15px">
 		<form class="pure-form" method="post" action="${ pageContext.request.contextPath }/servlet/lotto">
 			<fieldset>
 				<legend>Lotto Form</legend>
