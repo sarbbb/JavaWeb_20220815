@@ -8,7 +8,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class LottoService {
 	
 	// 泛型用List<Integer>表示List裡面還有List
-	private static List<List<Integer>> lottos = new CopyOnWriteArrayList<>();
+	private static List<List<Integer>> lottos = new CopyOnWriteArrayList<>();  // 這裡宣告成"static"是讓model裡(LottoService)無論在做"讀取"、"修改"、"刪除"時，都是讀同一個List<List<Integer>>
 	
 	// 四星彩電腦選號
 	public List<Integer> getLotto(){

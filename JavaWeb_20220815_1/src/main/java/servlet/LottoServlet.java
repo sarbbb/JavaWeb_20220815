@@ -37,11 +37,11 @@ public class LottoServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String mode = req.getParameter("mode")+"";
+		String mode = req.getParameter("mode")+""; // 在String mode宣告時，後面+"(空字串)"，這樣，走到switch時才不會出錯，加了空字串後，就算前面的mode Parameter是null，String mode也會變成"" 
 		int index = 0;
 		
 		// 模式運行
-		switch(mode) {
+		switch(mode) {  // switch裡面不能放null，會拋exception  // 解決方法可以在switch外面加一層if判斷，或是在String mode宣告時，後面+"(空字串)"
 			case "update":    // 修改模式
 				index = Integer.parseInt(req.getParameter("index")); // 取得index
 				lottoService.updateLotto(index);  // 進行修改
