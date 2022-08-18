@@ -7,5 +7,10 @@ public class TestLottoService {
 	public void test() {
 		LottoService service = new LottoService();
 		System.out.println(service.getLotto());
+		System.out.println(service.getLotto());
+		System.out.println(service.getLotto());
+		System.out.println(service.getLotto());
+		System.out.println(service.getLotto());
+		System.out.println(service.getLottos());
 	}
 }
