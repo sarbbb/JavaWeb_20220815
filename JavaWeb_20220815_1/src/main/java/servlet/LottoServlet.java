@@ -23,12 +23,14 @@ public class LottoServlet extends HttpServlet{
 		String username = req.getParameter("username");
 		// 透過 lottoService 取得 lotto 號碼
 		List<Integer> nums = lottoService.getLotto();
+		List<List<Integer>> lottos = lottoService.getLottos();
 		
 		// 透過分派器將資料傳遞給 /WEB-INF/view/lotto_result.jsp 來呈現資訊
 		RequestDispatcher rd = req.getRequestDispatcher("../WEB-INF/view/lotto_result.jsp");
 		// 準備要傳送給 lotto_result.jsp 來呈現的資料
 		req.setAttribute("username", username);
 		req.setAttribute("nums", nums);
+		req.setAttribute("lottos", lottos);
 		// 執行內部重導
 		rd.forward(req,resp); //執行內部重導 (重導到 /WEB-INF/view/lotto_result.jsp)
 		
