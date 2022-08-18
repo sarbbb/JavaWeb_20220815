@@ -37,6 +37,20 @@ public class LottoServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String mode = req.getParameter("mode")+"";
+		int index = 0;
+		
+		// 模式運行
+		switch(mode) {
+			case "update":    // 修改模式
+				index = Integer.parseInt(req.getParameter("index")); // 取得index
+				lottoService.updateLotto(index);  // 進行修改
+				break;
+			case "delete":    // 刪除模式
+				index = Integer.parseInt(req.getParameter("index")); // 取得index
+				lottoService.deleteLotto(index); // 進行刪除
+				break;
+		}
 		// 透過分派器將資料傳遞給 /form/lotto_form.jsp 來呈現資訊
 		RequestDispatcher rd = req.getRequestDispatcher("../WEB-INF/view/lotto_form.jsp");
 		// 準備要傳送給 lotto_result.jsp 來呈現的資料

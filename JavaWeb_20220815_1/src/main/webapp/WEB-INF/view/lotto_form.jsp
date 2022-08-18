@@ -32,15 +32,27 @@
 			  <table class="pure-table pure-table-bordered">
 					<thead>
 						<tr>
-							<th>序號</th>
-							<th>號碼</th>
+							<th rowspan="2" valign="middle">序號</th>
+							<th colspan="4" align="center">號碼</th>
+							<th rowspan="2" valign="middle">修改</th>
+							<th rowspan="2" valign="middle">刪除</th>
+						</tr>
+						<tr>
+							<td>一</td>
+							<td>二</td>
+							<td>三</td>
+							<td>四</td>
 						</tr>			
 					</thead>
 					<tbody>
 						<c:forEach varStatus="status" var="num" items="${ lottos }">
 							<tr>
 								<td>${ status.index }</td>
-								<td>${ num }</td>
+								<c:forEach var="n" items="${ num }">
+									<td>${ n }</td>		
+								</c:forEach>
+								<td><a href="${ pageContext.request.contextPath }/servlet/lotto?mode=update&index=${ status.index }">修改</a></td>
+								<td><a href="${ pageContext.request.contextPath }/servlet/lotto?mode=delete&index=${ status.index }">刪除</a></td>
 							</tr>		
 						</c:forEach>
 					</tbody>

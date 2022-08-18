@@ -34,15 +34,23 @@
 			  <table class="pure-table pure-table-bordered">
 					<thead>
 						<tr>
-							<th>序號</th>
-							<th>號碼</th>
+							<th rowspan="2" valign="middle">序號</th>
+							<th colspan="4" align="center">號碼</th>
+						</tr>
+						<tr>
+							<th>一</th>
+							<th>二</th>
+							<th>三</th>
+							<th>四</th>
 						</tr>			
 					</thead>
 					<tbody>
 						<c:forEach varStatus="status" var="num" items="${ lottos }">
 							<tr>
 								<td>${ status.index }</td>
-								<td>${ num }</td>
+								<c:forEach var="n" items="${ num }">
+									<td>${ n }</td>		
+								</c:forEach>
 							</tr>		
 						</c:forEach>
 					</tbody>
@@ -65,7 +73,7 @@
 		
 	  <form class = "pure-form">
 		  <fieldset>
-				<legend>Lotto list【傳統JSP語法】</legend>				
+				<legend>Lotto list【傳統JSP語法, (舊版)沒有再把list拆開】</legend>				
 				原始資料：${ lottos }<p/>
 			  <table class="pure-table pure-table-bordered">
 					<thead>
