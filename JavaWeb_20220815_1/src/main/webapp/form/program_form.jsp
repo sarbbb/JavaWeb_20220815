@@ -11,7 +11,7 @@
 		<form class="pure-form" method = "post"
 			  action="/JavaWeb_20220815_1/servlet/program">
 			<fieldset>
-				<legend>BMI form1</legend>
+				<legend>Programm form</legend>
 				姓名：<input type="text" id="username" name="username" placeholder="請輸入姓名"><p />
 				程式：<input type="checkbox" id="program" name="program" value="C#" />C#
 					<input type="checkbox" id="program" name="program" value="VB" />VB

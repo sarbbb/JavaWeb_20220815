@@ -42,6 +42,4 @@ public class ExchangeServlet extends HttpServlet{
 		//3.重傳到指定頁面
 		rd.forward(req, resp);
 	}
-	
-
 }
