@@ -18,7 +18,7 @@
 		<br>
 		context path: ${ pageContext.request.contextPath }
 	
-		<form class = "pure-form" action = "${ pageContext.request.contextPath }/form/lotto_form.jsp">
+		<form class = "pure-form" action = "${ pageContext.request.contextPath }/servlet/lotto">
 			<fieldset>
 				<legend>Lotto Result 【JSP EL語法】</legend>				
 				姓名：${ username }
@@ -52,7 +52,7 @@
 		<br>
 		<br>
 		<br>
-		<form class = "pure-form" action = "${ pageContext.request.contextPath }/form/lotto_form.jsp">
+		<form class = "pure-form" action = "${ pageContext.request.contextPath }/servlet/lotto">
 			<fieldset>
 				<legend>Lotto Result【傳統JSP語法】</legend>				
 				姓名：<% out.println(request.getAttribute("username")); %>
@@ -89,7 +89,7 @@
 		<br>
 		<br>
 		<br>
-		<form class = "pure-form" action = "${ pageContext.request.contextPath }/form/lotto_form.jsp">
+		<form class = "pure-form" action = "${ pageContext.request.contextPath }/servlet/lotto">
 			<fieldset>
 				<legend>Lotto Result【傳統JSP語法(用=取代Out.println)】</legend>				
 				姓名：<%= request.getAttribute("username") %>

@@ -33,9 +33,20 @@ public class LottoServlet extends HttpServlet{
 		req.setAttribute("lottos", lottos);
 		// 執行內部重導
 		rd.forward(req,resp); //執行內部重導 (重導到 /WEB-INF/view/lotto_result.jsp)
+	}
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 透過分派器將資料傳遞給 /form/lotto_form.jsp 來呈現資訊
+		RequestDispatcher rd = req.getRequestDispatcher("../WEB-INF/view/lotto_form.jsp");
+		// 準備要傳送給 lotto_result.jsp 來呈現的資料
+		List<List<Integer>> lottos = lottoService.getLottos();
+		req.setAttribute("lottos", lottos);
+		// 執行內部重導
+		rd.forward(req,resp); //執行內部重導 (重導到 /form/lotto_form.jsp)
 		
 	}
 	
-
+	
 	
 }

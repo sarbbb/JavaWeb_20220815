@@ -20,7 +20,7 @@
 		<li><a href="${ pageContext.request.contextPath }/form/program_form.jsp">program_form</a></li>
 		<li><a href="${ pageContext.request.contextPath }/servlet/image?name=f18">IcontextPamageServlet</a></li>
 		<li><a href="${ pageContext.request.contextPath }/form/exchange_form.jsp">exchange_form.jsp</a></li>
-		<li><a href="${ pageContext.request.contextPath }/form/lotto_form.jsp">lotto_form.jsp</a></li>
+		<li><a href="${ pageContext.request.contextPath }/servlet/lotto">/servlet/lotto (MVC版)</a></li>
 	
 	</ul>
 </body>
