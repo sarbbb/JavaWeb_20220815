@@ -9,13 +9,15 @@
 </head>
 <body>
 	現在時刻： <%=new Date() %>
+	<br>
+	context path: ${ pageContext.request.contextPath }
 	<ul>
-		<li><a href="servlet/hello">HelloServlet</a></li>
-		<li><a href="servlet/welcome">WelcomeServlet (配合 Insomnia 操作)</a></li>
-		<li><a href="form/bmi_form.jsp">bmi_form</a></li>
-		<li><a href="form/program_form.jsp">program_form</a></li>
-		<li><a href="servlet/image?name=f18">ImageServlet</a></li>
-		<li><a href="form/exchange_form.jsp">exchange_form.jsp</a></li>
+		<li><a href="${ pageContext.request.contextPath }/servlet/hello">HelloServlet</a></li>
+		<li><a href="${ pageContext.request.contextPath }/servlet/welcome">WelcomeServlet (配合 Insomnia 操作)</a></li>
+		<li><a href="${ pageContext.request.contextPath }/form/bmi_form.jsp">bmi_form</a></li>
+		<li><a href="${ pageContext.request.contextPath }/form/program_form.jsp">program_form</a></li>
+		<li><a href="${ pageContext.request.contextPath }/servlet/image?name=f18">IcontextPamageServlet</a></li>
+		<li><a href="${ pageContext.request.contextPath }/form/exchange_form.jsp">exchange_form.jsp</a></li>
 	
 	</ul>
 </body>
