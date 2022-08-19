@@ -22,6 +22,11 @@ create table if not exists user(
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import mvc.entity.User;
 
@@ -54,6 +59,30 @@ public class UserDao {
 			e.printStackTrace();
 		}
 		return rowcount;
+	}
+	
+	// 查詢全部
+	public List<User> queryAll(){
+		List<User> users = new ArrayList<>();
+		String sql = "select id,username,password,salary,createtime from user order by id";
+		try(Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);){
+			
+			while (rs.next())
+			{
+				User user = new User();
+				user.setId(rs.getInt("id"));
+				user.setUsername(rs.getString("username"));
+				user.setPassword(rs.getString("password"));
+				user.setSalary(rs.getBytes("salary"));
+				user.setCreatetime(rs.getTimestamp("createtime"));
+				// 將 user 紀錄注入到 user 集合中
+				users.add(user);
+			}			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return users;
 	}
 	
 }

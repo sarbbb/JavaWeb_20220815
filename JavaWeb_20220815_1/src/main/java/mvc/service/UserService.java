@@ -3,6 +3,7 @@ package mvc.service;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 import mvc.dao.UserDao;
 import mvc.entity.User;
@@ -14,6 +15,7 @@ public class UserService extends BaseService{
 		userDao = new UserDao();
 	}
 
+	// 新增 User
 	public int add(String username, String password, String salary) throws Exception{
         User user = new User();
         
@@ -33,6 +35,12 @@ public class UserService extends BaseService{
 		UserDao userDao = new UserDao();
 		int rowcount = userDao.add(user);
 		return rowcount;
+	}
+	
+	// 查詢所有user
+	public List<User> queryAll(){
+		// 將 salary 內容解密
+		return userDao.queryAll();
 	}
 
 }
