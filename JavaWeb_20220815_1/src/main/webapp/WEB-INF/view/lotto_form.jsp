@@ -19,8 +19,7 @@
 				<legend>Lotto Form</legend>
 				姓名：<input type="text" id="username" name="username" value="John" required="required"/>
 				<p/>
-				<button type="submit" class="pure-button pure-button-primary">電腦選號</button>
-			
+				<button type="submit" class="pure-button pure-button-primary">電腦選號</button>			
 			</fieldset>
 		</form>
 		
