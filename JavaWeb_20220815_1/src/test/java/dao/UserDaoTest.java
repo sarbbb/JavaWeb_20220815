@@ -14,16 +14,16 @@ public class UserDaoTest {
 	@Test
 	public void test() throws Exception {
 		User user = new User();
-		user.setUsername("John");
+		user.setUsername("Andy");
 		// 放入加密過後的 password
-		String password = "1234";
+		String password = "3333";
 		MessageDigest md5 = MessageDigest.getInstance("MD5");  
 		byte[] result = md5.digest(password.getBytes());
 		String encryptPassword = String.format("%032X",new BigInteger(result));
 		user.setPassword(encryptPassword);
 		
 		// 放入加密過後的 salary
-		String salary = "40000";
+		String salary = "72000";
 		String path = "src/main/java/mvc/service/user.key";  //密鑰位置
 		EncryptDESService des = new EncryptDESService(); //建立 DES 加密服務
 		des.genKey(path); 
