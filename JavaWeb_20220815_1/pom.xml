@@ -25,11 +25,24 @@
 			<version>4.13.2</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
-		    <groupId>org.glassfish.web</groupId>
-		    <artifactId>javax.servlet.jsp.jstl</artifactId>
-		    <version>1.2.4</version>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>javax.servlet.jsp.jstl</artifactId>
+			<version>1.2.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.simpleflatmapper</groupId>
+			<artifactId>sfm-springjdbc</artifactId>
+			<version>8.2.3</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.19</version>
 		</dependency>
 
 
