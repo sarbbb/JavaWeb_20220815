@@ -28,8 +28,7 @@ public class EncryptDESService {
     private SecretKey secretKey;
     // Cipher 負責完成加密或解密工作
     private Cipher cipher;
-    // 該字節數組負責保存加密的結果
-    private byte[] cipherByte;
+
     
 	// 生成密鑰
 	public void genKey(String path) throws Exception {
@@ -52,20 +51,23 @@ public class EncryptDESService {
 	}
 	
 	// 加密方法
+	// @param str 要加密的字串
 	public byte[] encrytor(String str) throws Exception {
         // 根據密鑰，對 Cipher 物件進行初始化，ENCRYPT_MODE 表示加密模式
 		cipher.init(Cipher.ENCRYPT_MODE, secretKey);
         byte[] src = str.getBytes();
-        // 加密，結果保存進 cipherByte
+        // 加密，結果保存進 cipherByte，該字節數組負責保存加密的結果
         byte[] cipherByte = cipher.doFinal(src);
         return cipherByte;
     }
 	
 	// 解密方法
+	// @param buff 要解密的加密資料
 	public byte[] decryptor(byte[] buff) throws Exception {
         // 根據密鑰，對 Cipher 物件進行初始化，DECRYPT_MODE 表示加密模式
 		cipher.init(Cipher.DECRYPT_MODE, secretKey);
-        cipherByte = cipher.doFinal(buff);
+		// 解密，結果保存進 cipherByte，該字節數組負責保存解密的結果
+        byte[] cipherByte = cipher.doFinal(buff);
         return cipherByte;
     }
 	
