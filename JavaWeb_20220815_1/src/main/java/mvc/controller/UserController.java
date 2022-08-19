@@ -37,7 +37,7 @@ public class UserController extends HttpServlet{
 			return;
 		}
 		 
-		 resp.sendRedirect("./mvc/user");   // 重導到首頁 //不能透過setAttribute傳參數，只能透過在網址列用「?parameter=值」的方式傳參數
+		 resp.sendRedirect("./user");   // 重導到首頁 //不能透過setAttribute傳參數，只能透過在網址列用「?parameter=值」的方式傳參數
 		 
 		 
 	}

@@ -39,8 +39,18 @@ public class UserService extends BaseService{
 	
 	// 查詢所有user
 	public List<User> queryAll(){
+		List<User> users = userDao.queryAll();
+		
 		// 將 salary 內容解密
-		return userDao.queryAll();
+		for(User user : users){
+			try {
+				byte[] decrypt= des.decryptor(user.getSalary());  // 解密
+				user.setSalaryDecrypt(new String(decrypt));   // 轉字串設定
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return users;
 	}
 
 }

@@ -24,17 +24,18 @@
 				<table class="pure-table pure-table-bordered">
 					<thead>
 						<tr>
-							<th>序號</th><th>帳號</th><th>密碼</th><th>薪資</th><th>建立時間</th>
+							<th>序號</th><th>帳號</th><th>密碼</th><th>薪資</th><th>薪資解密</th><th>建立時間</th>
 						</tr>
 					</thead>
 					<tbody>
 						<c:forEach var="user" items="${ users }">
 							<tr>
-								<td>${ users.id }</td>
-								<td>${ users.username }</td>
-								<td>${ users.password }</td>
-								<td>${ users.salary }</td>
-								<td>${ users.createtime }</td>
+								<td>${ user.id }</td>
+								<td>${ user.username }</td>
+								<td>${ user.password }</td>
+								<td>${ user.salary }</td>
+								<td>${ user.salaryDecrypt }</td>
+								<td>${ user.createtime }</td>
 							</tr>
 						</c:forEach>
 					</tbody>

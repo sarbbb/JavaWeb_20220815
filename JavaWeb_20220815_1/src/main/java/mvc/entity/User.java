@@ -8,6 +8,7 @@ public class User {
 	private String username;
 	private String password;  // MD5 password
 	private byte[] salary;   // DES 解密後的資料
+	private String salaryDecrypt;
 	private Date createtime;
 	public Integer getId() {
 		return id;
@@ -33,6 +34,12 @@ public class User {
 	public void setSalary(byte[] salary) {
 		this.salary = salary;
 	}
+	public String getSalaryDecrypt() {
+		return salaryDecrypt;
+	}
+	public void setSalaryDecrypt(String salaryDecrypt) {
+		this.salaryDecrypt = salaryDecrypt;
+	}
 	public Date getCreatetime() {
 		return createtime;
 	}
@@ -42,11 +49,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", salary="
-				+ Arrays.toString(salary) + ", createtime=" + createtime + "]";
+				+ Arrays.toString(salary) + ", salaryDecrypt=" + salaryDecrypt + ", createtime=" + createtime + "]";
 	}
 
-	
-	
-	
-	
 }
