@@ -112,4 +112,21 @@ public class UserService extends BaseService{
 		int rowcount = delete(Integer.parseInt(id)); // 修改
 		return rowcount;
 	}
+	
+	// checkLogin
+	public User checkLogin(String username, String password) {
+		if(username == null || password == null || username.trim().length() == 0 || password.trim().length() ==0) {
+			return null;
+		}
+		User user = userDao.get(username);
+		if(user == null) {
+			return null;
+		}
+		
+		// 比對輸入的密碼加密之後是否等於資料表中密碼欄位加密資料
+		byte[] result = md5.digest(password.getBytes());
+		String encryptPassword = String.format("%032X",new BigInteger(result));
+
+		return encryptPassword.equals(user.getPassword()) ? user : null;
+	}
 }
