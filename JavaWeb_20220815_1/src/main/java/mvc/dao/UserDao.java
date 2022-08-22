@@ -45,6 +45,7 @@ public class UserDao {
 		}
 	}
 	
+	// 新增
 	public int add(User user) {
 		int rowcount = 0;
 		String sql = "insert into user(username,password,salary) values (?,?,?)";
@@ -53,8 +54,21 @@ public class UserDao {
 			pstmt.setString(2, user.getPassword());
 			pstmt.setBytes(3, user.getSalary());
 			rowcount = pstmt.executeUpdate();
-			
-		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rowcount;
+	}
+	
+	// 修改
+	public int update(User user) {
+		int rowcount = 0;
+		String sql = "update user set username=?, salary=? where id=?";
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)){
+			pstmt.setString(1, user.getUsername());
+			pstmt.setBytes(2, user.getSalary());
+			pstmt.setInt(3, user.getId());
+			rowcount = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -85,4 +99,53 @@ public class UserDao {
 		return users;
 	}
 	
+	// 查詢單筆
+	public User get(Integer id) {
+		User user = null;
+		String sql = "select id,username,password,salary,createtime from user where id=?";
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)){
+			pstmt.setInt(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				user = new User();
+				user.setId(rs.getInt("id"));
+				user.setUsername(rs.getString("username"));
+				user.setPassword(rs.getString("password"));
+				user.setSalary(rs.getBytes("salary"));
+				user.setCreatetime(rs.getTimestamp("createtime"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return user;
+	}
+	
+	// 刪除
+	public int delete(Integer id)
+	{
+		int rowcount = 0;
+		String sql = "delete from user where id=?";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)){
+			pstmt.setInt(1, id);
+			rowcount = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rowcount;
+	}
+	
+	
+	// 修改
+	public int updatePassword(Integer id, String new_password) {
+		int rowcount = 0;
+		String sql = "update user set password=? where id=?";
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)){
+			pstmt.setString(1, new_password);
+			pstmt.setInt(2, id);
+			rowcount = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rowcount;
+	}
 }
