@@ -1,1 +1,1 @@
-{"resources":{"Scripts/Script.sql":{"default-datasource":"mysql8-182aff866c9-5ffdfba79a320235","default-catalog":"web"}}}
+{"resources":{"Scripts/Script-1.sql":{"default-datasource":"mysql8-182aff866c9-5ffdfba79a320235","default-catalog":"web"},"Scripts/Script.sql":{"default-datasource":"mysql8-182aff866c9-5ffdfba79a320235","default-catalog":"web"}}}
