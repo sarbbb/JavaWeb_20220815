@@ -8,20 +8,20 @@ import java.util.List;
 
 import mvc.entity.Book;
 
-public class BookDao extends BaseDao{
+public class BookDao extends BaseDao {
 	
 	// 新增
 	public int add(Book book) {
 		int rowcount = 0;
-		String sql = "insert into book(name, amount, price, user_id) "
-				+"values (?,?,?,?)";
-		try (PreparedStatement pstmt = conn.prepareStatement(sql)){
-			pstmt.setString(1,book.getName());
-			pstmt.setInt(2,book.getAmount());
-			pstmt.setInt(3,book.getPrice());
-			pstmt.setInt(4,book.getUserId());
+		String sql = "insert into book(name, amount, price, user_id) " +
+				     "values(?, ?, ?, ?)";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, book.getName());
+			pstmt.setInt(2, book.getAmount());
+			pstmt.setInt(3, book.getPrice());
+			pstmt.setInt(4, book.getUserId());
 			rowcount = pstmt.executeUpdate();
-		} catch (Exception e) {
+		}catch (Exception e) {
 			e.printStackTrace();
 		}
 		return rowcount;
@@ -32,10 +32,10 @@ public class BookDao extends BaseDao{
 		int rowcount = 0;
 		String sql = "update book set name=?, amount=?, price=? where id=?";
 		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
-			pstmt.setString(1,book.getName());
-			pstmt.setInt(2,book.getAmount());
-			pstmt.setInt(3,book.getPrice());
-			pstmt.setInt(4,book.getUserId());
+			pstmt.setString(1, book.getName());
+			pstmt.setInt(2, book.getAmount());
+			pstmt.setInt(3, book.getPrice());
+			pstmt.setInt(4, book.getId());
 			rowcount = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -47,8 +47,8 @@ public class BookDao extends BaseDao{
 	public int delete(Integer id) {
 		int rowcount = 0;
 		String sql = "delete from book where id=?";
-		try (PreparedStatement pstmt = conn.prepareStatement(sql)){
-			pstmt.setInt(1,id);
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, id);
 			rowcount = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -57,12 +57,11 @@ public class BookDao extends BaseDao{
 	}
 	
 	// 查詢全部
-	public List<Book> queryAll(){
+	public List<Book> queryAll() {
 		List<Book> books = new ArrayList<>();
-		String sql = "Select id, name, amount, price, user_id from book order by id";
-		try (Statement stmt = conn.createStatement()){
-			ResultSet rs = stmt.executeQuery(sql);
-			
+		String sql = "select id, name, amount, price, user_id from book order by id";
+		try(Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);) {
 			// 進行 O/R Mapping
 			while(rs.next()) {
 				Book book = new Book();
@@ -71,22 +70,22 @@ public class BookDao extends BaseDao{
 				book.setAmount(rs.getInt("amount"));
 				book.setPrice(rs.getInt("price"));
 				book.setUserId(rs.getInt("user_id"));
+				// 將 book 紀錄注入到 books 的集合中
 				books.add(book);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return books;
+		return books;		
 	}
 	
-	// 查詢單筆 (根據 id)
-	public Book get(Integer id){
+	// 查詢單筆(根據 id)
+	public Book get(Integer id) {
 		Book book = null;
-		String sql = "Select id, name, amount, price, user_id from book where id=?";
-		try (PreparedStatement pstmt = conn. prepareStatement(sql)){
-			pstmt.setInt(1,id);
+		String sql = "select id, name, amount, price, user_id from book where id=?";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, id);
 			ResultSet rs = pstmt.executeQuery();
-			
 			// 進行 O/R Mapping
 			if(rs.next()) {
 				book = new Book();
@@ -103,3 +102,26 @@ public class BookDao extends BaseDao{
 	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
