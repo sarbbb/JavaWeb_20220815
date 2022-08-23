@@ -109,11 +109,11 @@ public class UserService extends BaseService {
 	}
 	
 	// checkLogin
-	public User checkLogin(String usename, String password) {
-		if(usename == null || password == null || usename.trim().length() == 0 || password.trim().length() == 0) {
+	public User checkLogin(String username, String password) {
+		if(username == null || password == null || username.trim().length() == 0 || password.trim().length() == 0) {
 			return null;
 		}
-		User user = userDao.get(usename);
+		User user = userDao.get(username);
 		if(user == null) {
 			return null;
 		}

@@ -9,8 +9,8 @@ import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebFilter(urlPatterns = {"/servlet/*" , "/mvc/*"})
-public class UTF8Filter extends HttpFilter{
+@WebFilter(urlPatterns = {"/servlet/*", "/mvc/*"})
+public class UTF8Filter extends HttpFilter {
 
 	@Override
 	protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
@@ -18,10 +18,10 @@ public class UTF8Filter extends HttpFilter{
 		// 先進行 UTF-8 配置設定
 		req.setCharacterEncoding("UTF-8");
 		res.setCharacterEncoding("UTF-8");
-		res.setContentType("text/heml;charset=UTF-8");
+		res.setContentType("text/html;charset=UTF-8");
 		
 		// 再傳送下去(放行)
-		chain.doFilter(req,res);
+		chain.doFilter(req, res);
 	}
 	
 }

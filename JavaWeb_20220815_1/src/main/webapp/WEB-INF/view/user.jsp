@@ -23,7 +23,7 @@
 				${ buttonName=='修改'?'-->':'' }
 				薪資:<input type="text" value="${ requestScope.user.salaryDecrypt }" id="salary" name="salary" placeholder="請輸入salary" required="required"/></p>		
 			<button type="submit" class="pure-button pure-button-primary">${ requestScope.buttonName }</button>
-			<button type="button" onclick="location.href='${ requestScope.pageContext.request.contextPath }/mvc/user/';" class="pure-button">取消</button>
+			<button type="button" onclick="location.href='${ pageContext.request.contextPath }/mvc/user/';" class="pure-button">取消</button>
 			</fieldset>
 		</form>
 		<form class="pure-form" action="">
